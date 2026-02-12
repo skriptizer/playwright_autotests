@@ -17,5 +17,9 @@
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.2.3"
+  },
+  "dependencies": {
+    "@amanat-qa/utils-frontend": "latest",
+    "@amanat-qa/ui-core": "latest"
   }
 }
