@@ -1,23 +1,23 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { BasePage } from "../main/BaseForm";
 
-export class LoginPage {
+export class LoginPage extends BasePage {
   readonly loginInput: Locator;
   readonly passwordInput: Locator;
   readonly submitButton: Locator;
-  readonly uniqueElement: Locator;
 
-  constructor(private page: Page) {
-    this.loginInput = page.getByLabel("Login");
-    this.passwordInput = page.getByLabel("Password");
-    this.submitButton = page.getByRole("button", { name: "Login" });
-    this.uniqueElement = page.getByRole("heading", { name: "Login" });
-  }
+  constructor(protected page: Page) {
+    const uniqueElement = page.locator('//input[@id="form_item_login"]');
+    super(page, uniqueElement, "login page");
 
-  async waitForOpened() {
-    await expect(this.uniqueElement).toBeVisible();
+    this.loginInput = page.locator('//input[@id="form_item_login"]');
+    this.passwordInput = page.locator('//input[@id="form_item_password"]');
+    this.submitButton = page.locator('//button[@type="submit"]');
   }
 
   async fillLoginAndPassword(login: string, password: string) {
+    await expect(this.loginInput).toBeVisible();
+    await expect(this.passwordInput).toBeVisible();
     await this.loginInput.fill(login);
     await this.passwordInput.fill(password);
   }

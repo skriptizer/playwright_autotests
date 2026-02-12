@@ -1,13 +1,17 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page, Locator } from "@playwright/test";
 
 export class LoginPage {
-  constructor(private readonly page: Page) {}
+  private readonly emailInput: Locator;
+  private readonly passwordInput: Locator;
+  private readonly submitButton: Locator;
 
-  private emailInput = this.page.getByLabel("Email");
-  private passwordInput = this.page.getByLabel("Password");
-  private submitButton = this.page.getByRole("button", {
-    name: /sign in|login/i,
-  });
+  constructor(private readonly page: Page) {
+    this.emailInput = this.page.getByLabel("Email");
+    this.passwordInput = this.page.getByLabel("Password");
+    this.submitButton = this.page.getByRole("button", {
+      name: /sign in|login/i,
+    });
+  }
 
   async open(): Promise<void> {
     await this.page.goto("/login");
