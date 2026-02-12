@@ -1,88 +1,40 @@
-# Playwright Autotests Template
+# Playwright Codegen Template (from scratch)
 
-Шаблон проекта для UI-автотестов на Playwright с поддержкой автогенерации тестов (`codegen`) и структурой для масштабирования.
+Minimal starter focused on writing maintainable tests from Playwright codegen.
 
-## Установка
-
-1. Скопируйте `.env.example` в `.env` и заполните `NPM_TOKEN` токеном с доступом к private scope `@amanat-qa`.
-2. Установите зависимости:
+## 1. Install
 
 ```bash
-npm ci
+npm install
 npx playwright install
 ```
 
-## Запуск тестов
+## 2. Configure
 
-```bash
-npm test
-npm run test:ui
-npm run test:headed
-npm run test:debug
-```
+Copy `.env.example` to `.env` and set values.
 
-## Генерация тестов
+## 3. Record actions
 
 ```bash
 npm run codegen:base
-# или
-npm run codegen
 ```
 
-Сохранение сразу в файл:
+Paste draft actions into `tests/templates/codegen.raw-actions.example.ts`.
+
+## 4. Create real test from template
+
+- Copy `tests/templates/codegen.template.spec.ts` to a new spec (e.g. `tests/e2e/login.spec.ts`)
+- Move stable locators/actions into page object classes (see `tests/pageObjects/example.page.ts`)
+- Keep assertions business-driven in `Assert` step
+
+## 5. Run
 
 ```bash
-npx playwright codegen https://your-app-url.com -o tests/generated/smoke.codegen.spec.ts
+npm test
 ```
 
-## Рекомендуемый workflow для codegen
+## Recommended style
 
-1. Записать сценарий в `tests/generated`.
-2. Почистить локаторы: `getByRole`, `getByLabel`, `getByTestId`.
-3. Вынести действия и селекторы в `pages/*` (Page Object).
-4. Финальный стабильный сценарий переместить в `tests/e2e`.
-
-
-
-## Доступ к приватным npm-пакетам
-
-В репозитории добавлен `.npmrc` с настройкой scope `@amanat-qa` и авторизацией через переменную окружения `NPM_TOKEN`:
-
-```ini
-@amanat-qa:registry=https://registry.npmjs.org/
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
-```
-
-Токен не хранится в репозитории — передавайте его через `.env` или переменные CI.
-
-## Подключение библиотек `@amanat-qa/utils-frontend` и `@amanat-qa/ui-core`
-
-В проект добавлены npm-библиотеки:
-
-```json
-"dependencies": {
-  "@amanat-qa/utils-frontend": "latest",
-  "@amanat-qa/ui-core": "latest"
-}
-```
-
-Пример использования в тестах:
-
-```ts
-import * as utilsFrontend from "@amanat-qa/utils-frontend";
-import * as uiCore from "@amanat-qa/ui-core";
-
-// const value = utilsFrontend.someUtility(...);
-// const component = uiCore.someComponent(...);
-```
-
-`qalib` больше не используется как зависимость в этом репозитории.
-
-## Переменные окружения
-
-Скопируйте `.env.example` в `.env` и заполните значения:
-
-- `BASE_URL`
-- `LOGIN`
-- `PASSWORD`
-- `NPM_TOKEN` (токен для private npm scope `@amanat-qa`)
+- `Arrange / Act / Assert` with `test.step`
+- Prefer page objects for reusable actions
+- Keep raw codegen output only as temporary draft

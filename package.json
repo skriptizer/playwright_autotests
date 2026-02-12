@@ -1,25 +1,22 @@
 {
-  "name": "playwright-autotests",
+  "name": "playwright-codegen-template",
   "version": "1.0.0",
   "private": true,
-  "description": "Template project for Playwright UI test automation with code generation.",
+  "description": "Clean Playwright starter focused on codegen-based UI test authoring.",
   "type": "commonjs",
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "report": "playwright show-report",
+    "test:template": "playwright test tests/templates/codegen.template.spec.ts",
     "codegen": "playwright codegen",
-    "codegen:base": "playwright codegen http://localhost:3000",
-    "trace:open": "playwright show-trace test-results/**/trace.zip"
+    "codegen:base": "playwright codegen $BASE_URL",
+    "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.2.3"
-  },
-  "dependencies": {
-    "@amanat-qa/utils-frontend": "latest",
-    "@amanat-qa/ui-core": "latest"
+    "@types/node": "^25.2.3",
+    "typescript": "^5.9.2"
   }
 }

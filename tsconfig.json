@@ -3,15 +3,10 @@
     "target": "ES2022",
     "module": "commonjs",
     "moduleResolution": "node",
-    "types": [
-      "node",
-      "@playwright/test"
-    ],
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node", "@playwright/test"]
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }
