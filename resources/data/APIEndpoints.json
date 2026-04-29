@@ -1,0 +1,41 @@
+{
+  "auth": {
+    "login": "test"
+  },
+  "dictionary": {
+    "servers": "test",
+    "verifyBool": "test",
+    "keyVerifyBool": "test",
+    "testCars": "test",
+    "testClients": "test",
+    "ESBD": "test",
+    "productToRisks": "test",
+    "channelDetails": "test"
+  },
+  "kaspi": {
+    "pay": "test"
+  },
+  "client": {
+    "getClient": "test",
+    "setClient": "test"
+  },
+  "casco": {
+    "vehicles": "test",
+    "policies": "test"
+  },
+  "quote": {
+    "insuranceTypeProducts": "test",
+    "CRLR": "test",
+    "create": "test"
+  },
+  "claim": {
+    "vehicles": "test",
+    "isEsbdStable": "test",
+    "setInsuranceEvent": "test",
+    "checkContractByDate": "test",
+    "getContractByNum": "test"
+  },
+  "mst": {
+    "setPolicy": "test"
+  }
+}

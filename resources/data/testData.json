@@ -1,0 +1,98 @@
+{
+  "insurance_group": {
+    "KASKO": {
+      "insurance_Auto_TS": {
+        "name": "test",
+        "products": [
+          "test",
+          "test",
+          "test"
+        ]
+      }
+    },
+    "GPO": {
+      "OGPO_ECO_insurance": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_risk_of_causing_harm_to_third_parties": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_the_carrier_to_passengers": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_for_vehicle_owners": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_for_damage_caused": {
+        "name": "test",
+        "products": [
+          "test",
+          "test",
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_in_front_of_neighbors": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_under_the_contract": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance__of_emplyers": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_of_customs_authorities": {
+        "name": "test",
+        "products": [
+          "test"
+        ]
+      },
+      "OGPO_of_insurance_of_professional_liability": {
+        "name": "test",
+        "products": [
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test",
+          "test"
+        ]
+      }
+    }
+  },
+  "insurance_period": "test",
+  "tariff": "test",
+  "carRegion": "test",
+  "carType": "test",
+  "datesFormatDMY": "test",
+  "policyForIE": "test",
+  "holderPhone": "test"
+}

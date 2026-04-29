@@ -1,22 +1,32 @@
 {
-  "name": "playwright-codegen-template",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Clean Playwright starter focused on codegen-based UI test authoring.",
-  "type": "commonjs",
   "scripts": {
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug",
-    "test:template": "playwright test tests/templates/codegen.template.spec.ts",
-    "codegen": "playwright codegen",
-    "codegen:base": "playwright codegen $BASE_URL",
-    "report": "playwright show-report"
+    "eslint": "eslint .",
+    "eslint:fix": "eslint --fix .",
+    "lint": "npm run config && npm run eslint",
+    "lint:fix": "npm run config && npm run eslint:fix",
+    "config": "node ./main/utils/data/filesParser.js",
+    "config:parallel": "node ./main/utils/data/filesParser.js --parallel",
+    "ci:generate": "npm run config:parallel && node ./main/utils/data/gitlabCIGenerator.js",
+    "playwright:install": "playwright install chromium",
+    "playwright:codegen": "node ./support/playwright-codegen.js",
+    "test": "node ./support/run-tests.js",
+    "test:headless": "cross-env CI=1 node ./support/run-tests.js",
+    "record": "npm run playwright:codegen -- ${SPEC_NAME}"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
-    "@types/node": "^25.2.3",
-    "typescript": "^5.9.2"
+    "@playwright/test": "1.58.2",
+    "cross-env": "^10.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^16.6.1",
+    "js-yaml": "^4.1.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.6.0",
+    "mysql2": "^3.18.0",
+    "sequelize": "^6.37.7"
   }
 }

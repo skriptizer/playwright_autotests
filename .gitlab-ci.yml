@@ -1,0 +1,10 @@
+stages:
+  - lint-front-e2e-autotests
+  - generate-config
+  - e2e-tests
+
+include:
+  - project: 'test'
+    file: 'test'
+  - project: 'test'
+    file: 'test'
